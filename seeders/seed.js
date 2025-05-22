@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('../models/product');
+const Product = require('../backen/models/product');
 require('dotenv').config();
 
 const products = [
