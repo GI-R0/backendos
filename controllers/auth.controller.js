@@ -2,32 +2,27 @@ const User = require("../backen/models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
 const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ msg: "El usuario ya existe" });
     }
 
-    
     const salt = bcrypt.genSaltSync();
     const hashedPassword = bcrypt.hashSync(password, salt);
 
-  
     const user = new User({
       name,
       email,
       password: hashedPassword,
-      role: "user", 
+      role: "user",
     });
 
     await user.save();
 
-    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
@@ -42,24 +37,20 @@ const register = async (req, res) => {
   }
 };
 
-
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ msg: "Credenciales inválidas" });
     }
 
-    
     const validPassword = bcrypt.compareSync(password, user.password);
     if (!validPassword) {
       return res.status(400).json({ msg: "Credenciales inválidas" });
     }
 
-    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });

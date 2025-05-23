@@ -23,7 +23,7 @@ npm instalado
 
 
 1. clona este repositorio y accede al directorio del proyecto:
- git clone https://github.com/tu_usuario/tu_repositorio.git
+ git clone https://github.com/GI-R0/backendos.git
 cd backend-server
 
 2. Instala las dependencias necesarias:

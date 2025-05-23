@@ -1,6 +1,5 @@
 const Product = require("../backen/models/product");
 
-
 const createProduct = async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -19,7 +18,6 @@ const createProduct = async (req, res) => {
   }
 };
 
-
 const getProducts = async (req, res) => {
   try {
     const products = await Product.find().populate('createdBy');
@@ -29,7 +27,6 @@ const getProducts = async (req, res) => {
     res.status(500).json({ msg: "Error al obtener productos" });
   }
 };
-
 
 const getProduct = async (req, res) => {
   try {
@@ -46,7 +43,6 @@ const getProduct = async (req, res) => {
     res.status(500).json({ msg: "Error al obtener producto" });
   }
 };
-
 
 const updateProduct = async (req, res) => {
   try {
@@ -69,7 +65,6 @@ const updateProduct = async (req, res) => {
     res.status(500).json({ msg: "Error al actualizar producto" });
   }
 };
-
 
 const deleteProduct = async (req, res) => {
   try {

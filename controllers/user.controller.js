@@ -1,10 +1,9 @@
 const User = require("../backen/models/user");
 const cloudinary = require("../config/cloudinary");
 
-
 const getUsers = async (req, res) => {
   try {
-    const users = await User.find().populate('products'); 
+    const users = await User.find().populate('products');
     res.status(200).json(users);
   } catch (error) {
     console.error(error);
@@ -12,13 +11,11 @@ const getUsers = async (req, res) => {
   }
 };
 
-
 const changeRole = async (req, res) => {
   try {
     const { id } = req.params;
     const { role } = req.body;
 
-    
     if (req.user.role !== "admin") {
       return res.status(403).json({ msg: "No autorizado" });
     }
@@ -38,12 +35,10 @@ const changeRole = async (req, res) => {
   }
 };
 
-
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
 
-    
     if (req.user.id !== id && req.user.role !== "admin") {
       return res.status(403).json({ msg: "No autorizado para eliminar este usuario" });
     }
@@ -53,7 +48,6 @@ const deleteUser = async (req, res) => {
       return res.status(404).json({ msg: "Usuario no encontrado" });
     }
 
-   
     if (user.cloudinary_id) {
       await cloudinary.uploader.destroy(user.cloudinary_id);
     }
