@@ -71,4 +71,4 @@ Actualizar producto → PUT /api/products/:id
 Eliminar producto → DELETE /api/products/:id
 
 *Pruebas
-Para probar las rutas, puedes usar Postman, Insomnia o herramientas similares. Recuerda incluir los headers necesarios, como el token de autenticación cuando sea requerido.
+Para probar las rutas, puedes usar  Insomnia o herramientas similares. Recuerda incluir los headers necesarios, como el token de autenticación cuando sea requerido.
