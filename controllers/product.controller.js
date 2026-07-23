@@ -1,4 +1,5 @@
-const Product = require("../models/product");
+const Product = require("../routes/product.routes"); //  Ruta corregida apuntando a routes
+
 
 const createProduct = async (req, res) => {
   try {
