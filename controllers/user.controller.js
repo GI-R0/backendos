@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const User = require("../routes/user.routes");
+
 const cloudinary = require("../config/cloudinary");
 
 const getUsers = async (req, res) => {
