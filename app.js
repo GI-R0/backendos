@@ -7,9 +7,9 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 // Sin el .js al final de las rutas
-const authRoutes = require('./rutas/auth.routes');
-const userRoutes = require('./rutas/rutas de usuario'); 
-const productRoutes = require('./rutas/producto.routes'); 
+const authRoutes = require('./Rutas/auth.routes');
+const userRoutes = require('./Rutas/rutas de usuario'); 
+const productRoutes = require('./Rutas/producto.routes'); 
 
 const app = express();
 
