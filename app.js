@@ -6,10 +6,10 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-// Sin el .js al final de las rutas
-const authRoutes = require('./Rutas/auth.routes');
-const userRoutes = require('./Rutas/rutas de usuario'); 
-const productRoutes = require('./Rutas/producto.routes'); 
+// Corregido al inglés idéntico a tus carpetas y archivos reales de GitHub
+const authRoutes = require('./routes/auth.routes');
+const userRoutes = require('./routes/user.routes'); 
+const productRoutes = require('./routes/product.routes'); 
 
 const app = express();
 
@@ -53,8 +53,8 @@ app.use((req, res) => {
   });
 });
 
-// Importación configurada para la carpeta real 'configuración'
-const connectDB = require('./configuración/db.');
+// Corregido: tu carpeta real es 'config', no 'configuración'
+const connectDB = require('./config/db');
 
 connectDB().then(() => {
   const PORT = process.env.PORT || 10000;
