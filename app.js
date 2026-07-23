@@ -6,21 +6,17 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-
-// Cambiado para que coincida exactamente con los nombres de tus archivos en GitHub
-const authRoutes = require('./routes/auth.routes');
-const userRoutes = require('./routes/rutas de usuario'); // Coincide con 'rutas de usuario.js'
-const productRoutes = require('./routes/producto.routes'); // Coincide con 'producto.routes.js'
-
+// Corregido con los nombres exactos de tus archivos en las carpetas
+const authRoutes = require('./rutas/auth.routes');
+const userRoutes = require('./rutas/rutas de usuario'); 
+const productRoutes = require('./rutas/producto.routes'); 
 
 const app = express();
-
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, 
   max: 100 
 });
-
 
 app.use(helmet());
 app.use(cors());
@@ -29,17 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(limiter);
 
-
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
 
-
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
-
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -51,7 +44,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-
 app.use((req, res) => {
   res.status(404).json({
     error: {
@@ -61,9 +53,8 @@ app.use((req, res) => {
   });
 });
 
-
-const connectDB = require('./config/db.js');
-
+// Corregido apuntando a tu carpeta real "configuración"
+const connectDB = require('./configuración/db.js');
 
 connectDB().then(() => {
   const PORT = process.env.PORT || 5000;
@@ -74,7 +65,6 @@ connectDB().then(() => {
   console.error('Error al iniciar el servidor:', err);
   process.exit(1);
 });
-
 
 process.on('SIGTERM', () => {
   console.log('SIGTERM recibido. Cerrando servidor...');
@@ -91,6 +81,4 @@ process.on('unhandledRejection', (err) => {
   process.exit(1);
 });
 
-
-module.exports = app;module.exports = app;
-module.exports = app; 
+module.exports = app;
