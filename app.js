@@ -6,10 +6,10 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-// Rutas explícitas vinculadas directamente a la carpeta física 'rutas'
-const authRoutes = require('./rutas/auth.routes.js');
-const userRoutes = require('./rutas/rutas de usuario.js'); 
-const productRoutes = require('./rutas/producto.routes.js'); 
+// Sin el .js al final de las rutas
+const authRoutes = require('./rutas/auth.routes');
+const userRoutes = require('./rutas/rutas de usuario'); 
+const productRoutes = require('./rutas/producto.routes'); 
 
 const app = express();
 
