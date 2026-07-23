@@ -1,4 +1,4 @@
-const User = require("../backen/models/user");
+const User = require("../models/user");
 const cloudinary = require("../config/cloudinary");
 
 const getUsers = async (req, res) => {
