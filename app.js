@@ -6,10 +6,10 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
-// Corregido con los nombres exactos de tus archivos en las carpetas
-const authRoutes = require('./rutas/auth.routes');
-const userRoutes = require('./rutas/rutas de usuario'); 
-const productRoutes = require('./rutas/producto.routes'); 
+// Rutas explícitas vinculadas directamente a la carpeta física 'rutas'
+const authRoutes = require('./rutas/auth.routes.js');
+const userRoutes = require('./rutas/rutas de usuario.js'); 
+const productRoutes = require('./rutas/producto.routes.js'); 
 
 const app = express();
 
@@ -53,11 +53,11 @@ app.use((req, res) => {
   });
 });
 
-// Corregido apuntando a tu carpeta real "configuración"
+// Importación configurada para la carpeta real 'configuración'
 const connectDB = require('./configuración/db.js');
 
 connectDB().then(() => {
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 10000;
   app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
   });
