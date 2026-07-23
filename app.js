@@ -7,9 +7,10 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 
+// Cambiado para que coincida exactamente con los nombres de tus archivos en GitHub
 const authRoutes = require('./routes/auth.routes');
-const userRoutes = require('./routes/user.routes');
-const productRoutes = require('./routes/product.routes');
+const userRoutes = require('./routes/rutas de usuario'); // Coincide con 'rutas de usuario.js'
+const productRoutes = require('./routes/producto.routes'); // Coincide con 'producto.routes.js'
 
 
 const app = express();
