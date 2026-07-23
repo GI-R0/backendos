@@ -54,7 +54,7 @@ app.use((req, res) => {
 });
 
 // Importación configurada para la carpeta real 'configuración'
-const connectDB = require('./configuración/db.js');
+const connectDB = require('./configuración/db.');
 
 connectDB().then(() => {
   const PORT = process.env.PORT || 10000;
